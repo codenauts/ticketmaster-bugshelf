@@ -21,7 +21,15 @@ Gem::Specification.new do |s|
   
   s.add_runtime_dependency(%q<ticketmaster>, [">= 0.6.6"])
 
-  s.files         = `hg manifest`.split("\n")
+  s.files = [
+    "README.md",
+    "Rakefile",
+    "lib/bugshelf/bugshelf-api.rb",
+    "lib/provider/bugshelf.rb",
+    "lib/provider/project.rb",
+    "lib/provider/ticket.rb",
+    "lib/ticketmaster-bugshelf.rb"
+  ]
   s.test_files    = []
   s.executables   = []
   s.require_paths = ["lib"]
