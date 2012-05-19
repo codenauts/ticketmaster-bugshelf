@@ -38,8 +38,6 @@ module TicketMaster::Provider
           task = API.new(options.first)
           task.save
 
-          puts task.inspect
-
           ticket = self.new task
           ticket
         end
