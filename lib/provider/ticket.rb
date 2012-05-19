@@ -6,6 +6,25 @@ module TicketMaster::Provider
     class Ticket < TicketMaster::Provider::Base::Ticket
       API = BugshelfAPI::Issue # The class to access the api's tickets
 
+      def initialize(*object) 
+        if object.first
+          object = object.first
+          @system_data = object
+
+          unless object.is_a? Hash
+            hash = {:id => object.string_id,
+                    :title => object.title,
+                    :description => object.details,
+                    :created_at => object.created_at,
+                    :updated_at => object.updated_at}
+
+          else
+            hash = object
+          end
+          super hash
+        end
+      end
+
       def self.search(project_id, options = {}, limit = 1000)
        tickets = API.find(:all, :params => {:project_id => project_id, :per_page => limit})
        search_by_attribute(tickets, options, limit)
@@ -17,22 +36,17 @@ module TicketMaster::Provider
             :details => options.first.delete(:description)
           )
           task = API.new(options.first)
-          ticket = self.new task
           task.save
+
+          puts task.inspect
+
+          ticket = self.new task
           ticket
         end
       end
 
       def destroy(*options)
-        @system_data[:client].destroy.is_a?(Net::HTTPOK)
-      end
-
-      def id
-        @system_data[:client].string_id
-      end
-
-      def description
-        self.details
+        @system_data.destroy.is_a?(Net::HTTPOK)
       end
     end
   end
