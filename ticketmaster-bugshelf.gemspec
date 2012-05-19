@@ -6,8 +6,8 @@ Gem::Specification.new do |s|
   s.name        = "ticketmaster-bugshelf"
   s.version     = Ticketmaster::Bugshelf::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Thomas Steinhausen"]
-  s.email       = ["ts@image-addicts.de"]
+  s.authors     = ["Thomas Steinhausen", "Thomas Dohmke"]
+  s.email       = ["ts@image-addicts.de", "thomas@dohmke.de"]
   s.homepage    = "http://bugshelf.com"
   s.summary     = %q{Tickemaster provider for Bugshelf.}
   s.description = %q{A tickemaster provider to make Bugshelf api usable with ticketmaster.}
