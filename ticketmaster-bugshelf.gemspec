@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require require File.dirname(__FILE__) + "lib/ticketmaster-bugshelf/version"
+require File.dirname(__FILE__) + "/lib/ticketmaster-bugshelf/version"
 
 Gem::Specification.new do |s|
   s.name        = "ticketmaster-bugshelf"
